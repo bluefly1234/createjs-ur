@@ -1,0 +1,151 @@
+/***************************{CSS Reset}*****************************/
+
+* {
+    word-wrap: break-word;
+}
+
+html, body, ul, li, ol, p, h1, h2, h3, h4, h5, dl, dd, form, input, textarea, td, th, button, strong, em, select, video, canvas {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    /* 禁止选中文本(如无文本选中需求,此为必选项) */
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+li {
+    list-style: none;
+    vertical-align: top;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+textarea {
+    resize: none;
+    overflow: auto;
+}
+
+input, select, textarea {
+    border: none;
+    /*background: none;*/
+    /*outline-style: none;
+    -webkit-appearance: none;*/
+}
+
+img {
+    border: none;
+    vertical-align: top;
+}
+
+em {
+    font-style: normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+a, input, div, img, canvas {
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+a, img, canvas {
+    /* 禁止长按链接与图片弹出菜单 */
+    -webkit-touch-callout: none;
+}
+
+/* 横屏切换提示 */
+.mod-orient-layer {
+    display: none;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    z-index: 9997;
+
+    .mod-orient-layer__content {
+        position: absolute;
+        width: 100%;
+        top: 45%;
+        margin-top: -75px;
+        text-align: center;
+    }
+
+    .mod-orient-layer__icon-orient {
+        background-image: url('http://n.sinaimg.cn/gd/zt/orient.png');
+        display: inline-block;
+        width: 67px;
+        height: 109px;
+        transform: rotate(90deg);
+        animation: rotation infinite 1.5s ease-in-out;
+        background-size: 67px;
+    }
+
+    .mod-orient-layer__desc {
+        margin-top: 20px;
+        font-size: 15px;
+        color: #fff;
+    }
+    @media screen and (min-aspect-ratio: 13/9) {
+        display: block;
+        z-index: 10001;
+    }
+
+    @keyframes rotation {
+        10% {
+            transform: rotate(90deg);
+        }
+        50%, 60% {
+            transform: rotate(0deg);
+        }
+        90% {
+            transform: rotate(90deg);
+        }
+        100% {
+            transform: rotate(90deg);
+        }
+    }
+}
+/* 横屏切换提示 end */
+
+/* music */
+// #audio-music {
+//     position: absolute;
+//     width: 70px;
+//     height: 70px;
+//     right: 10px;
+//     top: 10px;
+//     z-index: 9999;
+//     background: url("http://guangdong.sinaimg.cn/subject/2016/1027/assets/images/music_icon.png") center center no-repeat;
+//     img {
+//         width: 100%;
+//     }
+//     &.animating {
+//         animation: music_shake 4s linear infinite;
+//     }
+//     @keyframes music_shake {
+//         0% {
+//             transform: rotate(0deg);
+//         }
+//         100% {
+//             transform: rotate(360deg);
+//         }
+//     }
+// }
+/* music end */

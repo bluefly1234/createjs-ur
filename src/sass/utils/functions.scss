@@ -1,0 +1,3 @@
+@function countPercent($w, $h) {
+    @return percentage($w / $h);
+}

@@ -1,0 +1,506 @@
+@import "common.scss";
+@import "utils/variables.scss";
+@import "utils/mixins.scss";
+@import "utils/functions.scss";
+
+html, body {
+	height: 100%;
+    background: #000;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    max-height: 1384px;
+    overflow: hidden;
+    position: relative;
+}
+
+.page,
+.pop {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    &.active {
+    	display: block;
+    }
+}
+
+.pop {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.home {
+    background: #fff;
+    .home-logo {
+        width: 539px;
+        height: 139px;
+        position: absolute;
+        left: 103px;
+        top: 59px;
+        background: url("../images/home_logo.png") no-repeat;
+    }
+    .home-main {
+        width: 658px;
+        height: 850px;
+        position: absolute;
+        left: 83px;
+        top: 3px;
+        .home-sun {
+            width: 111px;
+            height: 105px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            background: url("../images/home_sun.png") no-repeat;
+        }
+        .home-clouds {
+            width: 615px;
+            height: 300px;
+            position: absolute;
+            left: 0;
+            top: 147px;
+            background: url("../images/home_clouds.png") no-repeat;
+        }
+        .home-pic {
+            width: 484px;
+            height: 570px;
+            position: absolute;
+            left: 35px;
+            top: 280px;
+            background: url("../images/home_main.png") no-repeat;
+        }
+        .home-dialog {
+            width: 148px;
+            height: 130px;
+            position: absolute;
+            left: 414px;
+            top: 582px;
+            background: url("../images/home_dialog.png") no-repeat;
+
+            animation: flash 1s linear 0.2s infinite alternate both;
+        }
+    }
+    .loading {
+        width: 420px;
+        height: 57px;
+        position: absolute;
+        left: 165px;
+        top: 1000px;
+        display: none;
+        &.active {
+            display: block;
+        }
+        .loading-face {
+            width: 100%;
+            height: 34px;
+            position: absolute;
+            right: 100%;
+            margin-right: -18px;
+            top: 0;
+            transform: translate3d(0, 0, 0);
+            transition: all 0.5s linear 0s;
+            background: url("../images/loading_face.png") right top no-repeat;
+        }
+        .loading-box {
+            width: 100%;
+            height: 12px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background: #ededed;
+            border-radius: 12px;
+            overflow: hidden;
+            transform: translate3d(0, 0, 0);
+            .loading-bar {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                right: 100%;
+                top: 0;
+                border-radius: 12px;
+                transform: translate3d(0, 0, 0);
+                transition: all 0.5s linear 0s;
+                background: url("../images/loading_bar.png") no-repeat;
+            }
+        }
+    }
+    .home-start {
+        width: 286px;
+        height: 64px;
+        position: absolute;
+        left: 232px;
+        top: 1000px;
+        background: url("../images/home_start.png") no-repeat;
+        display: none;
+        &.active {
+            display: block;
+        }
+    }
+}
+
+.game {
+    #game {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    .menus {
+        width: 100%;
+        height: 250px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        display: none;
+        &.active {
+            display: block;
+        }
+        .menus-view {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+            background-color: #f6f6f6;
+            .view-item {
+                width: 100%;
+                height: 100%;
+                position: relative;
+                display: none;
+                &.active {
+                    display: block;
+                }
+                .swiper-container {
+                    width: 100%;
+                    height: 100%;
+                    display: none;
+                    &.active {
+                        display: block;
+                    }
+                }
+                .view-item-page {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+
+                    .arrow-prev {
+                        width: 54px;
+                        background: url("../images/icon_arrow_prev.png") center center no-repeat;
+                        transition: all 0.3s 0s;
+                        &.active {
+                            opacity: 0;
+                        }
+                    }
+                    .arrow-next {
+                        width: 54px;
+                        background: url("../images/icon_arrow_next.png") center center no-repeat;
+                        transition: all 0.3s 0s;
+                        &.active {
+                            opacity: 0;
+                        }
+                    }
+                    .icon {
+                        flex: 1;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    .icon-girl-head img, .icon-boy-head img {
+                        width: 82px;
+                    }
+                    .icon-kids-cloth-01 img {
+                        width: 144px;
+                    }
+                    .icon-kids-cloth-02 img {
+                        width: 97px;
+                    }
+                    .icon-kids-cloth-03 img {
+                        width: 94px;
+                    }
+                    .icon-kids-cloth-04 img {
+                        width: 96px;
+                    }
+                    .icon-kids-others-01 img {
+                        width: 79px;
+                    }
+                    .icon-kids-others-02 img {
+                        width: 126px;
+                    }
+                    .icon-kids-others-03 img {
+                        width: 129px;
+                    }
+                    .icon-kids-others-04 img {
+                        width: 52px;
+                    }
+                    .icon-kids-others-05 img {
+                        width: 97px;
+                    }
+                    .icon-kids-others-06 img {
+                        width: 64px;
+                    }
+                    .icon-kids-others-07 img {
+                        width: 89px;
+                    }
+                    .icon-kids-others-08 img {
+                        width: 50px;
+                    }
+                    .icon-boy-cloth-father-01 img {
+                        width: 73px;
+                    }
+                    .icon-boy-cloth-father-02 img {
+                        width: 72px;
+                    }
+                    .icon-boy-cloth-father-03 img {
+                        width: 100px;
+                    }
+                    .icon-boy-others-father-01 img {
+                        width: 104px;
+                    }
+                    .icon-boy-others-father-02 img {
+                        width: 143px;
+                    }
+                    .icon-boy-others-father-03 img {
+                        width: 79px;
+                    }
+                    .icon-boy-cloth-mother-01 img {
+                        width: 110px;
+                    }
+                    .icon-boy-cloth-mother-02 img {
+                        width: 74px;
+                    }
+                    .icon-boy-cloth-mother-03 img {
+                        width: 89px;
+                    }
+                    .icon-boy-others-mother-01 img {
+                        width: 80px;
+                    }
+                    .icon-boy-others-mother-02 img {
+                        width: 78px;
+                    }
+                    .icon-boy-others-mother-03 img {
+                        width: 90px;
+                    }
+                    .icon-girl-cloth-father-01 img {
+                        width: 122px;
+                    }
+                    .icon-girl-cloth-father-02 img {
+                        width: 90px;
+                    }
+                    .icon-girl-cloth-father-03 img {
+                        width: 140px;
+                    }
+                    .icon-girl-others-father-01 img {
+                        width: 104px;
+                    }
+                    .icon-girl-others-father-02 img {
+                        width: 143px;
+                    }
+                    .icon-girl-others-father-03 img {
+                        width: 79px;
+                    }
+                    .icon-girl-cloth-mother-01 img {
+                        width: 137px;
+                    }
+                    .icon-girl-cloth-mother-02 img {
+                        width: 99px;
+                    }
+                    .icon-girl-cloth-mother-03 img {
+                        width: 129px;
+                    }
+                    .icon-girl-others-mother-01 img {
+                        width: 80px;
+                    }
+                    .icon-girl-others-mother-02 img {
+                        width: 78px;
+                    }
+                    .icon-girl-others-mother-03 img {
+                        width: 90px;
+                    }
+                }
+            }
+        }
+        .menus-tab {
+            width: 100%;
+            height: 70px;
+            display: flex;
+            background: #fff;
+            .tab-item {
+                flex: 1;
+                &:nth-child(1) {
+                    background: url("../images/icon_person.png") center center no-repeat;
+                }
+                &:nth-child(2) {
+                    background: url("../images/icon_cloth.png") center center no-repeat;
+                }
+                &:nth-child(3) {
+                    background: url("../images/icon_bg.png") center center no-repeat;
+                }
+                &:nth-child(4) {
+                    background: url("../images/icon_text.png") center center no-repeat;
+                }
+                &.active {
+                    background-color: #f6f6f6;
+                }
+            }
+        }
+    }
+
+    .btn-create {
+        width: 109px;
+        height: 74px;
+        position: absolute;
+        right: 40px;
+        bottom: 280px;
+        background: url("../images/btn_create.png") no-repeat;
+        display: none;
+        &.active {
+            display: block;
+        }
+    }
+
+    .closet {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        .closet-close {
+            width: 2426px;
+            height: 1496px;
+            background: url("../images/closet_bg.jpg") no-repeat;
+            transform: translate3d(-838px, 0, 0) scale(0.8);
+            transform-origin: 1213px top;
+            transition: all 1s 0s;
+        }
+        .closet-open {
+            width: 750px;
+            height: 1496px;
+            position: absolute;
+            left: 838px;
+            top: 0;
+            opacity: 0;
+            // transform: scale(0.8);
+            &.active {
+                opacity: 1;
+                transition: opacity 0.3s ease-in 0s;
+            }
+        }
+
+        &.kids {
+            .closet-close {
+                transform: translate3d(-838px, 0, 0) scale(0.8);
+                transform-origin: 1213px top;
+            }
+            .closet-open {
+                left: 838px;
+                background: url("../images/closet_open_kids.jpg") no-repeat;
+            }
+        }
+        &.father {
+            .closet-close {
+                transform: translate3d(-1483px, 0, 0) scale(0.8);
+                transform-origin: 1858px top;
+            }
+            .closet-open {
+                width: 1200px;
+                right: 0;
+                left: auto;
+                background: url("../images/closet_open_father.jpg") right top no-repeat;
+            }
+        }
+        &.mother {
+            .closet-close {
+                transform: translate3d(-190px, 0, 0) scale(0.8);
+                transform-origin: 565px top;
+            }
+            .closet-open {
+                width: 1200px;
+                left: 0;
+                background: url("../images/closet_open_mother.jpg") no-repeat;
+            }
+        }
+    }
+
+    .closet-arrow {
+        width: 125px;
+        height: 89px;
+        position: absolute;
+        top: 50%;
+        margin-top: -44px;
+        display: none;
+        &.active {
+            display: block;
+        }
+    }
+    .closet-arrow-mother {
+        left: 0;
+        background: url("../images/closet_arrow_mother.png") center center no-repeat;
+    }
+    .closet-arrow-father {
+        right: 0;
+        background: url("../images/closet_arrow_father.png") center center no-repeat;
+    }
+    .closet-arrow-kids-left {
+        left: 0;
+        background: url("../images/closet_arrow_other.png") center center no-repeat;
+    }
+    .closet-arrow-kids-right {
+        right: 0;
+        background: url("../images/closet_arrow_others_02.png") center center no-repeat;
+    }
+
+    .closet-arrow-kids-left, .closet-arrow-mother {
+        animation: moveLeft 1s ease-in-out 0s infinite alternate both; 
+    }
+    .closet-arrow-kids-right, .closet-arrow-father {
+        animation: moveRight 1s ease-in-out 0s infinite alternate both; 
+    }
+
+    .photo {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: none;
+        &.active {
+            display: block;
+        }
+        img {
+            width: 100%;
+        }
+    }
+}
+
+@keyframes flash {
+    0% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes moveLeft {
+    0% {
+        transform: translate(20px, 0);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes moveRight {
+    0% {
+        transform: translate(-20px, 0);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}

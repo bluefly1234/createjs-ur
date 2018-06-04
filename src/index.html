@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=750,user-scalable=0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
+    <!--禁止自动识别电话号码-->
+    <meta name="format-detection" content="telephone=no">
+    <!--禁止自动识别邮箱-->
+    <meta content="email=no" name="format-detection">
+    <!--iphone中safari私有meta标签,允许全屏模式浏览,隐藏浏览器导航栏-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--iphone中safari顶端的状态条的样式black(黑色)-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app">
+    <title>ur</title>
+    <script src="lib/js/fixViewport750.js"></script>
+    <link rel="stylesheet" href="lib/css/swiper.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="page game active">
+            <div class="closet">
+                <div class="closet-close">
+                    <div class="closet-open"></div>
+                </div>
+            </div>
+            <canvas id="game"></canvas>
+
+            <div class="closet-arrow closet-arrow-mother"></div>
+            <div class="closet-arrow closet-arrow-father"></div>
+            <div class="closet-arrow closet-arrow-kids-left"></div>
+            <div class="closet-arrow closet-arrow-kids-right"></div>
+            <div class="btn-create"></div>
+            <div class="menus active">
+                <div class="menus-view">
+                    <div class="view-item active">
+                        <div class="view-item-page">
+                            <div class="icon icon-girl-head" data-oid="girl"><img src="images/girl_head.png"></div>
+                            <div class="icon icon-boy-head" data-oid="boy"><img src="images/boy_head.png"></div>
+                        </div>
+                    </div>
+                    <div class="view-item active" id="viewCloth">
+                        <div class="swiper-container active" id="viewKidsCloth">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="view-item-page">
+                                        <div class="icon icon-kids-cloth-01" data-id="cloth" data-oid="kidsCloth01"><img src="images/kids_cloth_01.png"></div>
+                                        <div class="icon icon-kids-cloth-02" data-id="cloth" data-oid="kidsCloth02"><img src="images/kids_cloth_02.png"></div>
+                                        <div class="icon icon-kids-cloth-03" data-id="cloth" data-oid="kidsCloth03"><img src="images/kids_cloth_03.png"></div>
+                                        <div class="icon icon-kids-cloth-04" data-id="cloth" data-oid="kidsCloth04"><img src="images/kids_cloth_04.png"></div>
+                                        <div class="arrow-next"></div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="view-item-page">
+                                        <div class="arrow-prev"></div>
+                                        <div class="icon icon-kids-others-01" data-id="cap" data-oid="kidsOthers01"><img src="images/kids_others_01.png"></div>
+                                        <div class="icon icon-kids-others-02" data-id="glasses" data-oid="kidsOthers02"><img src="images/kids_others_02.png"></div>
+                                        <div class="icon icon-kids-others-07" data-id="cap" data-oid="kidsOthers07"><img src="images/kids_others_07.png"></div>
+                                        <div class="icon icon-kids-others-08" data-id="necklace" data-oid="kidsOthers08"><img src="images/kids_others_08.png"></div>
+                                        <!-- <div class="arrow-next"></div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-container active" id="viewBoyClothFather">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="view-item-page">
+                                        <div class="icon icon-boy-cloth-father-01" data-id="cloth" data-oid="boyClothFather01"><img src="images/boy_cloth_father_01.png"></div>
+                                        <div class="icon icon-boy-cloth-father-02" data-id="cloth" data-oid="boyClothFather02"><img src="images/boy_cloth_father_02.png"></div>
+                                        <div class="icon icon-boy-cloth-father-03" data-id="cloth" data-oid="boyClothFather03"><img src="images/boy_cloth_father_03.png"></div>
+                                        <div class="icon icon-boy-others-father-01" data-id="glasses" data-oid="othersFather01"><img src="images/boy_others_father_01.png"></div>
+                                        <div class="arrow-next"></div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="view-item-page">
+                                        <div class="arrow-prev"></div>
+                                        <div class="icon icon-boy-others-father-02" data-id="cap" data-oid="othersFather02"><img src="images/boy_others_father_02.png"></div>
+                                        <div class="icon icon-boy-others-father-03" data-id="tie" data-oid="othersFather03"><img src="images/boy_others_father_03.png"></div>
+                                        <div class="icon"></div>
+                                        <div class="icon"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-container active" id="viewBoyClothMother">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="view-item-page">
+                                        <div class="icon icon-boy-cloth-mother-01" data-id="cloth" data-oid="boyClothMother01"><img src="images/boy_cloth_mother_01.png"></div>
+                                        <div class="icon icon-boy-cloth-mother-02" data-id="cloth" data-oid="boyClothMother02"><img src="images/boy_cloth_mother_02.png"></div>
+                                        <div class="icon icon-boy-cloth-mother-03" data-id="cloth" data-oid="boyClothMother03"><img src="images/boy_cloth_mother_03.png"></div>
+                                        <div class="icon icon-boy-others-mother-01" data-id="tie" data-oid="othersMother01"><img src="images/boy_others_mother_01.png"></div>
+                                        <div class="arrow-next"></div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="view-item-page">
+                                        <div class="arrow-prev"></div>
+                                        <div class="icon icon-boy-others-mother-02" data-id="cap" data-oid="othersMother02"><img src="images/boy_others_mother_02.png"></div>
+                                        <div class="icon icon-boy-others-mother-03" data-id="glasses" data-oid="othersMother03"><img src="images/boy_others_mother_03.png"></div>
+                                        <div class="icon"></div>
+                                        <div class="icon"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-container active" id="viewGirlClothFather">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="view-item-page">
+                                        <div class="icon icon-girl-cloth-father-01" data-id="cloth" data-oid="girlClothFather01"><img src="images/girl_cloth_father_01.png"></div>
+                                        <div class="icon icon-girl-cloth-father-02" data-id="cloth" data-oid="girlClothFather02"><img src="images/girl_cloth_father_02.png"></div>
+                                        <div class="icon icon-girl-cloth-father-03" data-id="cloth" data-oid="girlClothFather03"><img src="images/girl_cloth_father_03.png"></div>
+                                        <div class="icon icon-girl-others-father-01" data-id="glasses" data-oid="othersFather01"><img src="images/boy_others_father_01.png"></div>
+                                        <div class="arrow-next"></div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="view-item-page">
+                                        <div class="arrow-prev"></div>
+                                        <div class="icon icon-girl-others-father-02" data-id="cap" data-oid="othersFather02"><img src="images/boy_others_father_02.png"></div>
+                                        <div class="icon icon-girl-others-father-03" data-id="tie" data-oid="othersFather03"><img src="images/boy_others_father_03.png"></div>
+                                        <div class="icon"></div>
+                                        <div class="icon"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-container active" id="viewGirlClothMother">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="view-item-page">
+                                        <div class="icon icon-girl-cloth-mother-01" data-id="cloth" data-oid="girlClothMother01"><img src="images/girl_cloth_mother_01.png"></div>
+                                        <div class="icon icon-girl-cloth-mother-02" data-id="cloth" data-oid="girlClothMother02"><img src="images/girl_cloth_mother_02.png"></div>
+                                        <div class="icon icon-girl-cloth-mother-03" data-id="cloth" data-oid="girlClothMother03"><img src="images/girl_cloth_mother_03.png"></div>
+                                        <div class="icon icon-girl-others-mother-01" data-id="tie" data-oid="othersMother01"><img src="images/boy_others_mother_01.png"></div>
+                                        <div class="arrow-next"></div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="view-item-page">
+                                        <div class="arrow-prev"></div>
+                                        <div class="icon icon-girl-others-mother-02" data-id="cap" data-oid="othersMother02"><img src="images/boy_others_mother_02.png"></div>
+                                        <div class="icon icon-girl-others-mother-03" data-id="glasses" data-oid="othersMother03"><img src="images/boy_others_mother_03.png"></div>
+                                        <div class="icon"></div>
+                                        <div class="icon"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="view-item active">
+                        <div class="view-item-page">
+                            <div class="icon icon-scene-01" data-id="scene" data-oid="scene01"><img src="images/scene_01.png"></div>
+                            <div class="icon icon-scene-02" data-id="scene" data-oid="scene02"><img src="images/scene_02.png"></div>
+                            <div class="icon icon-scene-03" data-id="scene" data-oid="scene03"><img src="images/scene_03.png"></div>
+                        </div>
+                    </div>
+                    <div class="view-item active">
+                        <div class="swiper-container active" id="viewFace">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="view-item-page">
+                                        <div class="icon icon-face-01" data-oid="face01"><img src="images/face_01.png"></div>
+                                        <div class="icon icon-face-02" data-oid="face02"><img src="images/face_02.png"></div>
+                                        <div class="icon icon-face-03" data-oid="face03"><img src="images/face_03.png"></div>
+                                        <div class="icon icon-face-04" data-oid="face04"><img src="images/face_04.png"></div>
+                                        <div class="icon icon-face-05" data-oid="face05"><img src="images/face_05.png"></div>
+                                        <div class="arrow-next"></div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="view-item-page">
+                                        <div class="icon icon-face-06" data-oid="face06"><img src="images/face_06.png"></div>
+                                        <div class="icon icon-face-07" data-oid="face07"><img src="images/face_07.png"></div>
+                                        <div class="icon icon-face-08" data-oid="face08"><img src="images/face_08.png"></div>
+                                        <div class="icon icon-face-09" data-oid="face09"><img src="images/face_09.png"></div>
+                                        <div class="icon icon-face-10" data-oid="face10"><img src="images/face_10.png"></div>
+                                        <div class="arrow-next"></div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="view-item-page">
+                                        <div class="icon icon-face-11" data-oid="face11"><img src="images/face_11.png"></div>
+                                        <div class="icon icon-face-12" data-oid="face12"><img src="images/face_12.png"></div>
+                                        <div class="icon icon-face-13" data-oid="face13"><img src="images/face_13.png"></div>
+                                        <div class="icon icon-face-14" data-oid="face14"><img src="images/face_14.png"></div>
+                                        <div class="icon icon-face-15" data-oid="face15"><img src="images/face_15.png"></div>
+                                        <div class="arrow-next"></div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="view-item-page">
+                                        <div class="arrow-prev"></div>
+                                        <div class="icon icon-face-16" data-oid="face16"><img src="images/face_16.png"></div>
+                                        <div class="icon icon-face-17" data-oid="face17"><img src="images/face_17.png"></div>
+                                        <div class="icon icon-face-18" data-oid="face18"><img src="images/face_18.png"></div>
+                                        <div class="icon icon-face-19" data-oid="face19"><img src="images/face_19.png"></div>
+                                        <div class="icon icon-face-20" data-oid="face20"><img src="images/face_20.png"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="menus-tab">
+                    <div class="tab-item active"></div>
+                    <div class="tab-item"></div>
+                    <div class="tab-item"></div>
+                    <div class="tab-item"></div>
+                </div>
+            </div>
+        </div>
+        <div class="page photo"><img id="photo"></div>
+
+    </div>
+    <div id="orientLayer" class="mod-orient-layer">
+        <div class="mod-orient-layer__content">
+            <i class="icon mod-orient-layer__icon-orient"></i>
+            <div class="mod-orient-layer__desc">为了更好的体验，请使用竖屏浏览！</div>
+        </div>
+    </div>
+    <!-- <div id="audio-music" class="animating">
+      <audio id="bgMusic" preload="auto" autoplay="" loop src=""></audio>
+  </div> -->
+    <script src="lib/js/zepto.min.js"></script>
+    <script src="lib/js/easeljs-0.8.2.min.js"></script>
+    <script src="lib/js/preloadjs-0.6.2.min.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script src="lib/js/swiper.min.js"></script>
+    <script src="lib/js/tweenMax.min.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
